@@ -1,0 +1,135 @@
+<!-- Area Chart Example -->
+<style>
+    .form-control {
+        background-color: white;
+    }
+
+    td:nth-of-type(5) {
+        width: 20%;
+    }
+</style>
+
+<div class="row ">
+    <div class="col-sm-8">
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-phone"></i> Important Numbers
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Contacts</th>
+                            <th>Phone Number</th>
+                            <th>Email</th>
+                            <th>Info</th>
+                            <th>Handle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in info |filter:!x.important">
+                            <td><span ng-hide="showMe($index)">{{x.name}}</span><input text="text" class="form-control input-sm"
+                                    ng-model="x.name" ng-show="showMe($index)"></td>
+                            <td><span ng-hide="showMe($index)"><a ng-href="tel:x.tel">{{x.tel}}</a></span><input text="text"
+                                    class="form-control input-sm" ng-model="x.tel" ng-show="showMe($index)"></td>
+                            <td><span ng-hide="showMe($index)">{{x.email}}</span><input text="text" class="form-control input-sm"
+                                    ng-model="x.email" ng-show="showMe($index)"></td>
+                            <td><span ng-hide="showMe($index)">{{x.message}}</span><input text="text" class="form-control input-sm"
+                                    ng-model="x.message" ng-show="showMe($index)"></td>
+                            <td><a ng-click="removeItem()"><span class="fa fa-fw fa-trash"></span></a>/
+                                <a ng-click="change()" ng-hide="showMe($index)"> <span class="fa fa-fw fa-edit"></span></a>
+
+                                <a ng-click="save()" ng-show="showMe($index)"><span class="fa fa-fw fa-check"></span></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <!-- Example Pie Chart Card -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-task"></i> To Do
+            </div>
+            <div class="card-body">
+
+                <ul id="sortable" class="list-unstyled">
+                    <li class="ui-state-default" ng-repeat="todo in todos | filter:{done:false}">
+                        <div class="checkbox">
+                            <label>
+                                                                   
+                                                                    <span class="done-{{todo.done}}">{{todo.text}}</span> </label>
+                            <a style="background-color:transparent;" class="pull-right" ng-click="clearCompleted(todo.text)"><span class="fa fa-fw fa-check" style="color:green;" ></span></a>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<div class="row ">
+    <div class="col-sm-8">
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-calendar"></i> Important Numbers
+            </div>
+
+            <div class="table-responsive">
+                    <table class="table">
+    
+                        <!--Table head-->
+    
+                        <thead >
+                            <tr>
+                                <th>Title</th>
+                                <th>Time</th>
+                                <th>Place</th>
+                                <th>Description</th>
+    
+                            </tr>
+                        </thead>
+                        <!--Table head-->
+    
+                        <!--Table body-->
+                        <tbody>
+                            <tr ng-repeat="x in calendar |filter:test">
+                                <td ng-model="x.title">{{x.title}}</td>
+                                <td ng-model="x.time">{{x.time}} at {{x.hours}}:{{x.min}}{{x.daytime}}</td>
+                                <td ng-model="x.place" >{{x.place}}    </td>   
+                                <td ng-model="x.description">{{x.description}}</td>
+                            
+                                    
+                    
+                  
+                            
+                                        
+                                   
+                        
+                    </tr>
+                   
+                </tbody>
+                <!--Table body-->
+            </table>
+            
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Example Notifications Card -->
+
+
+<!-- Example Tables Card -->
+
+
+
+<!-- /.container-fluid -->

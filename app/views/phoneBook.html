@@ -1,0 +1,185 @@
+<style>
+    .panel {
+        width: 80%;
+        margin: 50px auto;
+    }
+
+    td:nth-of-type(1) {
+        width: 20%;
+    }
+
+    td:nth-of-type(5) {
+        width: 20%;
+    }
+
+    td:nth-of-type(2) {
+        width: 25%;
+    }
+
+    input[type="text"] {
+        width: 100%;
+    }
+
+    @media (min-width: 768px) and (max-width: 992px) {
+        .form-inline .form-control {
+            width: 150px;
+        }
+    }
+
+    .red {
+        color: red;
+    }
+
+    .form-area {
+        background-color: #FAFAFA;
+        padding: 10px 40px 60px;
+        margin: 10px 0px 60px;
+        border: 1px solid GREY;
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+<div class="container " style=" margin-bottom:10%;">
+    <h3>Phone Book </h3>
+
+
+
+    <div class="modal fade" id="centralModalInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-info" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header">
+                    <p class="heading lead">Add a New Contact</p>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="white-text">&times;</span>
+                        </button>
+                </div>
+
+                <!--Body-->
+                <div class="modal-body">
+                    <form role="form-inline" name="myForm" id="myForm">
+
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" name="name" ng-model="formData.newName" placeholder="Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="email" name="email" placeholder="Email" ng-model="formData.newEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="mobile" ng-model="formData.newTel" name="mobile" placeholder="Mobile Number"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="subject" name="subject" ng-model="formData.newMessage" placeholder="Subject"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label style=" display: block;">  <input type="checkbox" id="test6" ng-model="formData.important" />Important</label>
+                        </div>
+
+                    </form>
+                </div>
+
+                <!--Footer-->
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn waves-effect waves-light" style="background-color:#5394ff !important;" ng-disabled="myForm.$invalid"
+                        ng-click="addItem()">Add <i class="fa fa-diamond ml-1"></i></button>
+                    <button type="button" class="btn btn-outline-secondary-modal waves-effect" data-dismiss="modal" ng-click="showDetails=!showDetails">No, thanks</button>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="row justify-content-center">
+        <div class="col-sm-10">
+            <div class="row justify-content-between">
+                <div class="col-4">
+                    <input type="text" name="search" ng-model="test" placeholder="Search" class="form-control">
+                </div>
+                <div class="col-4">
+                    <button type="button" class="btn btn waves-effect waves-light" style="background-color:#5394ff !important; float:right;"
+                        ng-click="modalDisp()" data-toggle="modal" data-target="#centralModalInfo">Add</button>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="mdb-color darken-3">
+                        <tr>
+                            <th style="color:white;">Contacts</th>
+                            <th style="color:white;">Phone Number</th>
+                            <th style="color:white;">Email</th>
+                            <th style="color:white;">Info</th>
+                            <th style="color:white;">Handle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in info | filter:test">
+                            <td><span ng-hide="showMe($index)">{{x.name}}</span><input text="text" class="form-control input-sm"
+                                    ng-model="x.name" ng-show="showMe($index)"></td>
+                            <td><span ng-hide="showMe($index)">{{x.tel}}</span><input text="text" class="form-control input-sm"
+                                    ng-model="x.tel" ng-show="showMe($index)"></td>
+                            <td><span ng-hide="showMe($index)">{{x.email}}</span><input text="text" class="form-control input-sm"
+                                    ng-model="x.email" ng-show="showMe($index)"></td>
+                            <td><span ng-hide="showMe($index)">{{x.message}}</span><input text="text" class="form-control input-sm"
+                                    ng-model="x.message" ng-show="showMe($index)"></td>
+                            <td><a ng-click="removeItem()"><span class="fa fa-fw fa-trash"></span>&nbsp;</a>/
+                                <a ng-click="change()" ng-hide="showMe($index)"> <span class="fa fa-fw fa-edit"></span></a>
+                                </a><a ng-click="save()" ng-show="showMe($index)">&nbsp;<span class="fa fa-fw fa-check"></span></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>

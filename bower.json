@@ -1,0 +1,37 @@
+{
+  "name": "angular-project",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "^1.4.0",
+    "angular-animate": "^1.4.0",
+    "angular-aria": "^1.4.0",
+    "angular-cookies": "^1.4.0",
+    "angular-messages": "^1.4.0",
+    "angular-resource": "^1.4.0",
+    "angular-route": "^1.4.0",
+    "angular-sanitize": "^1.4.0",
+    "angular-ui-router": "^0.4.2",
+    "angular-touch": "^1.4.0",
+    "bootstrap": "^3.3.7",
+    "angular-scroll": "^1.0.2",
+    "jquery": "3.2.0",
+    "jquery-ui": "1.12.1",
+    "pickadate":"*",
+
+    "eonasdan-bootstrap-datetimepicker": "^4.17.47"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.4.0"
+  },
+  "appPath": "app",
+  "moduleName": "myApp",
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
+  }
+}
